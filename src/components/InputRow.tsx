@@ -22,28 +22,28 @@ const InputRow: React.FC<InputRowProps> = ({
   placeholder,
 }) => {
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center justify-between py-4 border-b border-slate-100 last:border-0 gap-3 sm:gap-6">
-      <label className="text-base font-semibold text-slate-600 flex-1">
+    <div className="input-field">
+      <label className="block text-[11px] font-bold uppercase tracking-[0.09em] text-gray-500 mb-1">
         {label}
       </label>
-      <div className="flex gap-2 w-full sm:w-auto">
+      <div className="flex items-baseline gap-2">
         <input
           type={type}
           name={name}
           value={value}
           onChange={onChange}
           placeholder={placeholder}
-          className="w-full sm:w-28 px-3 py-2.5 border-2 border-slate-200 rounded-xl text-base font-bold text-slate-800 bg-white transition-all duration-200 hover:border-blue-300 focus:outline-none focus:ring-3 focus:ring-blue-500/20 focus:border-blue-500"
+          className="w-full bg-transparent border-none p-0 text-white text-base font-medium focus:ring-0 placeholder:text-gray-700"
         />
         {units && (
           <select
             name={`${name}Unit`}
             value={unitValue}
             onChange={onChange}
-            className="w-24 px-2 py-2.5 border-2 border-slate-200 rounded-xl text-sm font-semibold text-slate-500 bg-white cursor-pointer hover:border-blue-300 hover:text-blue-600 transition-all duration-200 focus:outline-none focus:ring-3 focus:ring-blue-500/20 focus:border-blue-500 focus:text-blue-700"
+            className="bg-transparent border-none p-0 text-[11px] font-bold text-indigo-400 cursor-pointer focus:ring-0 uppercase tracking-widest"
           >
             {units.map((unit) => (
-              <option key={unit} value={unit}>
+              <option key={unit} value={unit} className="bg-[#161925] text-white">
                 {unit}
               </option>
             ))}

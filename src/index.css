@@ -1,5 +1,68 @@
 @import "tailwindcss";
 
-body {
-  @apply bg-gray-50 text-gray-900;
+:root {
+  --bg-base: #0d0f18;
+  --bg-card: #161925;
+  --border: rgba(255,255,255,0.07);
+  --text-primary: #e2e8f0;
+  --text-muted: #6b7280;
+  --accent: #4f46e5;
+  --accent-light: #818cf8;
+}
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-inter);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .layout-2col {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .layout-2col {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .card-simple {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+
+  .input-field {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    transition: border-color 0.2s;
+  }
+
+  .input-field:focus-within {
+    border-color: var(--accent-light);
+  }
 }
